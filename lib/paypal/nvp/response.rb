@@ -39,7 +39,7 @@ module Paypal
       attr_accessor *@@attribute_mapping.values
       attr_accessor :shipping_options_is_default, :success_page_redirect_requested, :insurance_option_selected
       attr_accessor :amount, :description, :ship_to, :bill_to, :payer, :recurring, :billing_agreement, :refund
-      attr_accessor :payment_responses, :payment_info, :items
+      attr_accessor :payment_responses, :payment_info, :items, :shipping_option_name
       alias_method :colleration_id, :correlation_id # NOTE: I made a typo :p
 
       def initialize(attributes = {})
@@ -50,6 +50,7 @@ module Paypal
         @shipping_options_is_default = attrs.delete(:SHIPPINGOPTIONISDEFAULT) == 'true'
         @success_page_redirect_requested = attrs.delete(:SUCCESSPAGEREDIRECTREQUESTED) == 'true'
         @insurance_option_selected = attrs.delete(:INSURANCEOPTIONSELECTED) == 'true'
+        @shipping_option_name = attrs.delete(:SHIPPINGOPTIONNAME)
         @amount = Payment::Common::Amount.new(
           :total => attrs.delete(:AMT),
           :item => attrs.delete(:ITEMAMT),
