@@ -72,7 +72,8 @@ module Paypal
           :city => attrs.delete(:SHIPTOCITY),
           :state => attrs.delete(:SHIPTOSTATE),
           :country_code => attrs.delete(:SHIPTOCOUNTRYCODE),
-          :country_name => attrs.delete(:SHIPTOCOUNTRYNAME)
+          :country_name => attrs.delete(:SHIPTOCOUNTRYNAME),
+          :phone_number => attrs.delete(:SHIPTOPHONENUM)
         )
         @bill_to = Payment::Response::Address.new(
           :owner => attrs.delete(:ADDRESSID),
