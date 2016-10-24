@@ -15,6 +15,7 @@ module Paypal
         :TIMESTAMP => :timestamp,
         :TOKEN => :token,
         :VERSION => :version,
+        :PHONENUM => :phone_number,
         # Some of the attributes below are duplicates of what
         # exists in the payment response, but paypal doesn't
         # prefix these with PAYMENTREQUEST when issuing a
